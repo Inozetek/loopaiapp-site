@@ -2,464 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Loop – AI Concierge</title>
-  <meta name="description" content="Loop surfaces the people, places, and events you love most so you don't miss them. Plan in chat. Plan with friends. The longer you use it, the sharper it gets.">
+  <meta name="description" content="Loop is your personal assistant. It surfaces the people, places, and events you love most, wherever you are, so you don't miss them. Coming soon.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
   <meta property="og:title" content="Loop – AI Concierge">
-  <meta property="og:description" content="Loop surfaces the people, places, and events you love most so you don't miss them. Plan in chat. Plan with friends. The longer you use it, the sharper it gets.">
+  <meta property="og:description" content="The people, places, and events you love most, surfaced wherever you are. Coming soon.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loopaiapp.com/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <style>
-    :root {
-      --brand-cyan: #00A6D9;
-      --brand-cyan-light: #2ECEFF;
-      --brand-cyan-dark: #007DA3;
-      --brand-green: #09DB98;
-      --brand-green-light: #34D296;
-      --brand-orange: #F59E0B;
-      --dark-bg: #1C1C1E;
-      --medium-gray: #2C2C2E;
-      --light-gray: #48484A;
-      --text-primary: #1a1a2e;
-      --text-secondary: #4a4a68;
-      --text-muted: #6b7280;
-      --bg-primary: #ffffff;
-      --bg-section: #f8f9fc;
-      --border-color: #e5e7eb;
-      --radius: 16px;
-      --radius-sm: 12px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: var(--text-primary);
-      background-color: var(--bg-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(145deg, var(--dark-bg) 0%, #0d2836 50%, var(--brand-cyan-dark) 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 80px 24px 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 60% 40%, rgba(0, 166, 217, 0.12) 0%, transparent 60%),
-                  radial-gradient(circle at 30% 70%, rgba(9, 219, 152, 0.08) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
-
-    .hero-logo {
-      width: 96px;
-      height: 96px;
-      margin-bottom: 28px;
-      border-radius: 24px;
-      filter: drop-shadow(0 4px 24px rgba(0, 166, 217, 0.3));
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #ffffff 0%, var(--brand-cyan-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero .tagline {
-      font-size: 20px;
-      font-weight: 400;
-      opacity: 0.9;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    .hero .subtitle {
-      font-size: 16px;
-      opacity: 0.65;
-      max-width: 520px;
-      margin: 0 auto 36px;
-    }
-
-    .store-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    .store-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: var(--radius-sm);
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .store-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-
-    .store-btn.ios {
-      background: #ffffff;
-      color: var(--dark-bg);
-    }
-
-    .store-btn.android {
-      background: transparent;
-      color: #ffffff;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-
-    .store-btn svg { width: 22px; height: 22px; }
-
-    /* Features */
-    .features {
-      padding: 80px 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .features h2 {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .features .section-sub {
-      text-align: center;
-      font-size: 17px;
-      color: var(--text-secondary);
-      max-width: 560px;
-      margin: 0 auto 48px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-
-    .feature-card {
-      background: var(--bg-section);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      border: 1px solid var(--border-color);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .feature-card h3 {
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .icon-cyan { background: rgba(0, 166, 217, 0.12); }
-    .icon-green { background: rgba(9, 219, 152, 0.12); }
-    .icon-orange { background: rgba(245, 158, 11, 0.12); }
-    .icon-purple { background: rgba(85, 60, 150, 0.12); }
-
-    /* How it works */
-    .how-it-works {
-      background: var(--dark-bg);
-      color: #ffffff;
-      padding: 80px 24px;
-    }
-
-    .how-it-works .inner { max-width: 880px; margin: 0 auto; }
-
-    .how-it-works h2 {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 48px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 36px;
-    }
-
-    .step { text-align: center; }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-cyan), var(--brand-green));
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .step p { font-size: 14px; opacity: 0.7; line-height: 1.6; }
-
-    /* Pricing */
-    .pricing {
-      padding: 80px 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .pricing h2 {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .pricing .section-sub {
-      text-align: center;
-      font-size: 17px;
-      color: var(--text-secondary);
-      margin-bottom: 48px;
-    }
-
-    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-    .pricing-card {
-      border-radius: var(--radius);
-      padding: 36px 28px;
-      border: 1px solid var(--border-color);
-    }
-
-    .pricing-card.featured {
-      background: linear-gradient(145deg, #f0f9ff, #ecfdf5);
-      border: 2px solid var(--brand-cyan);
-      position: relative;
-    }
-
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--brand-cyan), var(--brand-green));
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .pricing-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-    .pricing-card .price { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
-    .pricing-card .price span { font-size: 16px; font-weight: 400; color: var(--text-muted); }
-    .pricing-card .period { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
-
-    .pricing-card ul { list-style: none; padding: 0; }
-    .pricing-card li {
-      font-size: 14px;
-      color: var(--text-secondary);
-      padding: 6px 0;
-      padding-left: 24px;
-      position: relative;
-    }
-    .pricing-card li::before {
-      content: '\2713';
-      position: absolute;
-      left: 0;
-      color: var(--brand-green);
-      font-weight: 700;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark-bg);
-      color: rgba(255,255,255,0.6);
-      padding: 48px 24px 32px;
-      text-align: center;
-    }
-
-    .footer-links { display: flex; gap: 28px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; }
-    .footer-links a:hover { color: var(--brand-cyan-light); }
-    footer .copyright { font-size: 13px; opacity: 0.5; }
-
-    @media (max-width: 640px) {
-      .hero { padding: 56px 20px 48px; }
-      .hero h1 { font-size: 36px; }
-      .hero .tagline { font-size: 17px; }
-      .features, .pricing { padding: 56px 20px; }
-      .features h2, .how-it-works h2, .pricing h2 { font-size: 28px; }
-      .pricing-cards { grid-template-columns: 1fr; }
-      .store-buttons { flex-direction: column; align-items: center; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="app.js" defer></script>
 </head>
-<body>
+<body class="unveil">
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="assets/loop-logo.svg" alt="Loop" class="hero-logo">
-      <h1>Loop</h1>
-      <p class="tagline">Your personal assistant for what's around you</p>
-      <p class="subtitle">Loop surfaces the people, places, and events you love most so you don't miss them. Ask it. Plan with it. Plan with friends. The longer you use it, the sharper it gets.</p>
-      <div class="store-buttons">
-        <a href="#" class="store-btn ios">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          App Store
-        </a>
-        <a href="#" class="store-btn android">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.52-1.28 1-1.5l10 10-10 10c-.48-.22-1-.67-1-1.5m14.5-8.5L6.27 3.59l9.5 9.5-9.5 9.5L17.5 12m2.77-1.5L7.85 2.07l10.42 6.02L20.27 9l-2 1.5m0 3L20.27 15l-2 1.5-10.42 6.02 12.42-8.43z"/></svg>
-          Google Play
-        </a>
-      </div>
-    </div>
-  </section>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <section class="features">
-    <h2>The people, places, and events you love — surfaced</h2>
-    <p class="section-sub">Loop reads your calendar, your taste, your friends, and what's nearby. It puts the right thing in front of you at the right time.</p>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon icon-cyan">&#x1F4AC;</div>
-        <h3>Ask Loop</h3>
-        <p>Plain English in, plans out. Ask for a quiet dinner, a Friday night, a brunch spot near the park — Loop answers with picks that actually fit.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon icon-green">&#x1F465;</div>
-        <h3>Plan with friends</h3>
-        <p>Compare schedules, pick a spot in the middle, lock the time. Group planning that doesn't require a five-thread group chat.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon icon-orange">&#x1F4C5;</div>
-        <h3>Calendar-aware</h3>
-        <p>Loop reads your free windows and only surfaces what fits. No empty pings when you're already busy.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon icon-purple">&#x1F9ED;</div>
-        <h3>Triangulating planner</h3>
-        <p>Calendar plus location plus weather plus your taste plus your people. Loop weighs them and surfaces the few picks worth your attention.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon icon-cyan">&#x2728;</div>
-        <h3>Trains on you</h3>
-        <p>Every thumbs-up sharpens the next pick. The longer you use Loop, the more it knows your patterns, your spots, your people.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon icon-green">&#x1F512;</div>
-        <h3>No ads, no data sales</h3>
-        <p>No ad networks, no tracking pixels, no selling your data. Revenue from subscriptions only.</p>
-      </div>
-    </div>
-  </section>
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#top" aria-label="Loop home">
+      <img src="assets/loop-logo.svg" alt="" width="34" height="24">
+      <span>Loop</span>
+    </a>
+    <a class="pill pill-sm" href="mailto:support@loopaiapp.com?subject=Notify%20me">Get notified</a>
+  </header>
 
-  <section class="how-it-works">
-    <div class="inner">
-      <h2>How it works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Tell Loop your interests</h3>
-          <p>Pick the categories that matter — food, music, outdoors, the things you actually do.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Loop watches the signals</h3>
-          <p>Calendar, location, friends, weather, time of day. Loop weighs them and surfaces the few picks worth your attention.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Plan and go</h3>
-          <p>Add to calendar in one tap. Invite friends. Get a reminder before you need to leave.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Loop gets sharper</h3>
-          <p>Thumbs up the wins. Every signal makes next week's picks more you.</p>
+  <main id="main">
+
+    <!-- 1. Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="rings" aria-hidden="true">
+        <span class="ring ring-a"></span>
+        <span class="ring ring-b"></span>
+        <span class="halo"></span>
+      </div>
+
+      <div class="hero-inner">
+        <p class="eyebrow reveal">Coming soon</p>
+        <h1 id="hero-title" class="display reveal" style="--d:1">Loop</h1>
+        <p class="hero-sub reveal" style="--d:2">AI Concierge</p>
+        <p class="hero-promise reveal" style="--d:3">The people, places, and events you love most &mdash; surfaced wherever you are, so you don&rsquo;t miss them.</p>
+        <div class="reveal" style="--d:4">
+          <a class="pill" href="mailto:support@loopaiapp.com?subject=Notify%20me">Get notified</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="pricing">
-    <h2>Simple pricing</h2>
-    <p class="section-sub">Start free. Upgrade when Loop starts feeling like yours.</p>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Free</h3>
-        <div class="price">$0</div>
-        <p class="period">Forever</p>
-        <ul>
-          <li>Daily AI picks</li>
-          <li>Calendar-aware suggestions</li>
-          <li>Feedback learning</li>
-          <li>Friend connections</li>
-          <li>Save and bucket-list places</li>
-        </ul>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Most Popular</div>
-        <h3>Loop Plus</h3>
-        <div class="price">$5.99<span>/mo</span></div>
-        <p class="period">or $49.99/year (save 30%)</p>
-        <ul>
-          <li>Unlimited AI chat</li>
-          <li>Group planning with friends</li>
-          <li>Advanced filters</li>
-          <li>Full calendar sync</li>
-          <li>Priority support</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
 
-  <footer>
+    <!-- 2. It learns you -->
+    <section class="learns" aria-labelledby="learns-title">
+      <div class="wrap">
+        <p class="eyebrow reveal">The magic</p>
+        <h2 id="learns-title" class="headline reveal" style="--d:1">It learns <span class="grad">you.</span></h2>
+        <p class="manifesto" data-scrub-words>Loop watches what you actually do &mdash; not what you tell it. Every place you visit, every event you save, every plan you commit to teaches it a little more. Until one morning you wake up to a list of things you didn&rsquo;t know you needed, on a day you couldn&rsquo;t have planned better yourself.</p>
+      </div>
+    </section>
+
+    <!-- 3. Teasers -->
+    <section class="teaser" aria-labelledby="t1-title">
+      <div class="wrap teaser-grid">
+        <div class="teaser-copy">
+          <p class="eyebrow reveal">01</p>
+          <h2 id="t1-title" class="headline reveal" style="--d:1">Ask it.</h2>
+          <p class="lede reveal" style="--d:2">Tell Loop what kind of night you&rsquo;re after, in your own words. It answers with real places that fit &mdash; where you are, when you&rsquo;re free, the way you like to spend your time.</p>
+        </div>
+        <figure class="stage" data-scrub>
+          <span class="stage-glow" aria-hidden="true"></span>
+          <img class="device" src="assets/loop-chat-preview.svg" width="186" height="270" alt="Loop chat: you ask for an idea, Loop replies with picks.">
+        </figure>
+      </div>
+    </section>
+
+    <section class="teaser teaser-flip" aria-labelledby="t2-title">
+      <div class="wrap teaser-grid">
+        <div class="teaser-copy">
+          <p class="eyebrow reveal">02</p>
+          <h2 id="t2-title" class="headline reveal" style="--d:1">Plan with friends.</h2>
+          <p class="lede reveal" style="--d:2">The night you and your closest people are somehow all free at once &mdash; at a spot that fits every one of you. Loop finds the overlap so the group chat doesn&rsquo;t have to.</p>
+        </div>
+        <figure class="stage stage-green" data-scrub>
+          <span class="stage-glow" aria-hidden="true"></span>
+          <img class="device" src="assets/loop-month-preview.svg" width="186" height="270" alt="Loop calendar: a month grid marked with plans.">
+        </figure>
+      </div>
+    </section>
+
+    <section class="teaser" aria-labelledby="t3-title">
+      <div class="wrap teaser-grid">
+        <div class="teaser-copy">
+          <p class="eyebrow reveal">03</p>
+          <h2 id="t3-title" class="headline reveal" style="--d:1">Your day.</h2>
+          <p class="lede reveal" style="--d:2">Your calendar, your location, your taste, your people &mdash; woven into one loop. The right thing in front of you, at the right time.</p>
+        </div>
+        <figure class="stage" data-scrub>
+          <span class="stage-glow" aria-hidden="true"></span>
+          <img class="device" src="assets/loop-map-preview.svg" width="186" height="270" alt="Today's Loop: a map route from home, through the day's stops, and back.">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4. Closing -->
+    <section class="closing" aria-labelledby="close-title">
+      <div class="rings rings-close" aria-hidden="true">
+        <span class="ring ring-a"></span>
+        <span class="ring ring-b"></span>
+      </div>
+      <div class="wrap closing-inner">
+        <h2 id="close-title" class="closer reveal">The longer you use it, <span class="grad">the sharper it gets.</span></h2>
+        <p class="lede center reveal" style="--d:1">Loop &ndash; AI Concierge is coming soon.</p>
+        <div class="reveal" style="--d:2">
+          <a class="pill" href="mailto:support@loopaiapp.com?subject=Notify%20me">Get notified</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 5. Footer -->
+  <footer class="site-footer">
     <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
       <a href="support.html">Support</a>
-      <a href="mailto:support@loopaiapp.com">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </div>
-    <p class="copyright">&copy; 2026 Loop. All rights reserved.</p>
+    <p class="copyright">&copy; 2026 Loop</p>
   </footer>
 
 </body>
