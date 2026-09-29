@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Loop</title>
+  <meta name="description" content="How Loop collects, uses, and protects your information.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="draft-banner">
+    <strong>Draft — Not Legal Advice</strong><br>
+    This policy must be reviewed by a licensed attorney before publication. It is a working draft generated from the current codebase, not a final legal document.
+  </div>
+
+  <header class="doc-header">
+    <a href="index.html" class="brand">Loop</a>
+  </header>
+
+  <main class="doc">
+    <a href="index.html" class="back-link">&larr; Back home</a>
+    <p style="background:#3a2f00;color:#ffd666;padding:12px 16px;border-radius:8px;font-weight:600">DRAFT — Loop – AI Concierge has not launched yet. This document is a working draft and is not yet in effect.</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last Updated: <span class="todo">TODO: EFFECTIVE DATE</span> &middot; Effective Date: <span class="todo">TODO: EFFECTIVE DATE</span></p>
+
+    <div class="todo-list">
+      <h2>Placeholders that must be filled in before publishing</h2>
+      <ul>
+        <li><span class="todo">TODO: COMPANY LEGAL NAME</span> — the registered legal entity operating Loop (e.g. "Loop, Inc." or a DBA). Not yet formed/named as of this draft.</li>
+        <li><span class="todo">TODO: COMPANY ADDRESS</span> — a real mailing address (registered agent or business address). Texas is the placeholder state.</li>
+        <li>Privacy contact: <a href="mailto:support@loopaiapp.com">support@loopaiapp.com</a></li>
+        <li><span class="todo">TODO: EFFECTIVE DATE</span> — set on the date this is actually published, not drafted.</li>
+        <li>App name: <strong>Loop – AI Concierge</strong> (referred to as "Loop" below). Decided 2026-09-28.</li>
+      </ul>
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p><span class="todo">TODO: COMPANY LEGAL NAME</span> ("we," "our," or "us") operates the Loop mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the App.</p>
+    <p>By using Loop, you agree to the collection and use of information as described in this policy. If you do not agree, please do not use the App.</p>
+
+    <h2>2. Information We Collect</h2>
+    <h3>2.1 Information you provide</h3>
+    <ul>
+      <li><strong>Account information:</strong> email address and password if you sign up directly, or basic profile info (name, email) if you sign in with Google or Facebook.</li>
+      <li><strong>Profile information:</strong> interests/preferences, home and work addresses you choose to save, and an optional profile photo/avatar.</li>
+      <li><strong>Calendar data:</strong> events and schedule information when you connect your device calendar or create plans in the App, used to detect free time and avoid double-booking.</li>
+      <li><strong>Friends &amp; group planning:</strong> friend connections, group plan invitations, shared plan details, and messages within group chats.</li>
+      <li><strong>Feedback:</strong> thumbs up/down ratings, feedback tags, and notes on recommendations — this is what trains your personalized ranking.</li>
+      <li><strong>Payment information:</strong> processed by Stripe (and/or the Apple/Google in-app purchase systems) for Loop Plus subscriptions and business listings; we do not store full card numbers.</li>
+    </ul>
+
+    <h3>2.2 Information collected automatically</h3>
+    <ul>
+      <li><strong>Location data:</strong> foreground GPS location when you grant permission, used for nearby recommendations and distance/travel-time calculations. Background location is optional and, where offered, is used only for features you explicitly enable (e.g. arrival/departure-based reminders); you can revoke it at any time in device settings.</li>
+      <li><strong>Device &amp; usage information:</strong> device type, OS version, app version, and how you interact with the App (screens viewed, recommendations accepted/declined), used for debugging and improving recommendations.</li>
+      <li><strong>Push notification tokens:</strong> an Expo push token tied to your device, used to deliver reminders and recommendation alerts you've opted into.</li>
+      <li><strong>Crash and error reports:</strong> collected via Sentry to diagnose and fix bugs. These reports can include device state and a stack trace at the time of the crash.</li>
+    </ul>
+
+    <h3>2.3 Information from third parties</h3>
+    <ul>
+      <li><strong>Google Sign-In / Facebook Login:</strong> basic profile information (name, email, profile photo) if you choose social sign-in, via Supabase Auth.</li>
+      <li><strong>Google Places API:</strong> venue names, locations, ratings, hours, and photos that power recommendations. This data originates from Google and is subject to Google's own privacy policy.</li>
+      <li><strong>Google Gemini API:</strong> when you use the AI concierge/chat, your query text (and relevant context such as your stated preferences or location) is sent to Google's Gemini API to generate a response and activity descriptions.</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>Provide personalized activity and event recommendations based on your interests, location, schedule, and feedback history.</li>
+      <li>Power the AI concierge chat and generate activity descriptions.</li>
+      <li>Show your calendar and detect free time for suggestions.</li>
+      <li>Enable social features: friends, group planning, and in-app messaging.</li>
+      <li>Process subscription and business-listing payments.</li>
+      <li>Send push notifications you've opted into (recommendations, reminders, friend activity).</li>
+      <li>Diagnose crashes and improve app stability and performance.</li>
+      <li>Improve the recommendation model using your (and, in aggregate, other users') feedback signals.</li>
+    </ul>
+
+    <h2>4. How We Share Your Information</h2>
+    <p><strong>We do not sell your personal data.</strong></p>
+    <ul>
+      <li><strong>With friends:</strong> only what you explicitly choose to share (e.g. a group plan, or your schedule if you grant that permission). You control this in Privacy Settings.</li>
+      <li><strong>Service providers who process data on our behalf:</strong>
+        <ul>
+          <li>Supabase — database, authentication, file storage</li>
+          <li>Google Places API / Google Maps — venue and map data</li>
+          <li>Google Gemini API — AI concierge responses and content generation</li>
+          <li>Stripe — payment processing</li>
+          <li>Sentry — crash and error reporting</li>
+          <li>Expo — push notification delivery</li>
+        </ul>
+      </li>
+      <li><strong>Aggregated/anonymized analytics:</strong> we may share data that cannot identify you individually (e.g. category popularity trends) with business partners.</li>
+      <li><strong>Legal requirements:</strong> if required by law, court order, or government request.</li>
+      <li><strong>Business transfers:</strong> in a merger, acquisition, or sale of assets, user data may transfer to the acquiring entity, who would be bound by this policy or a materially similar one.</li>
+    </ul>
+
+    <h2>5. Location Data</h2>
+    <p>Location is core to Loop's recommendations. Foreground location is used to find nearby activities and calculate distance/travel time. Any background location use is opt-in and limited to the feature you enabled it for; you can disable it at any time in your device's Settings app. Your location is never shown to other users directly — group planning uses a calculated meeting point, not your live position.</p>
+
+    <h2>6. Data Retention</h2>
+    <ul>
+      <li><strong>Account data:</strong> retained while your account is active; deleted within 30 days of a confirmed account-deletion request.</li>
+      <li><strong>Feedback data:</strong> retained to power recommendations; anonymized after account deletion where used in aggregate model training.</li>
+      <li><strong>Crash/error reports:</strong> retained per Sentry's default retention window for debugging purposes.</li>
+      <li><strong>Payment records:</strong> retained as required by law for tax and accounting purposes.</li>
+    </ul>
+
+    <h2>7. Your Rights and Choices</h2>
+    <ul>
+      <li><strong>Access &amp; correction:</strong> review and update your profile information in-app.</li>
+      <li><strong>Deletion:</strong> delete your account and associated data from Settings, or by contacting <span class="todo">TODO: PRIVACY EMAIL</span>. Account deletion is a supported, irreversible in-app action.</li>
+      <li><strong>Location opt-out:</strong> revoke location permission in device settings at any time.</li>
+      <li><strong>Notification opt-out:</strong> disable push notifications in device settings or in-app.</li>
+      <li><strong>Data portability:</strong> request a copy of your data in a machine-readable format by contacting us.</li>
+    </ul>
+    <p><strong>California residents (CCPA):</strong> you have the right to know what personal information we collect, request deletion, and opt out of the sale of personal information. We do not sell personal information.</p>
+    <p><strong>EEA/UK residents (GDPR basics):</strong> where applicable, you have the right to access, rectify, erase, restrict, or port your data, and to object to certain processing. Contact us to exercise these rights. <span class="todo">TODO: confirm whether Loop is offered in the EEA/UK at launch; if not, this section may be simplified.</span></p>
+
+    <h2>8. Data Security</h2>
+    <ul>
+      <li>Data in transit is encrypted via HTTPS/TLS.</li>
+      <li>Database access is protected by Supabase Row-Level Security (RLS) policies, so users can generally only access their own data.</li>
+      <li>API keys and secrets are kept server-side and are not exposed in client-side code.</li>
+      <li>Payment processing is handled by Stripe / the app stores' own PCI-DSS-compliant systems.</li>
+    </ul>
+
+    <h2>9. Children's Privacy</h2>
+    <p>Loop is not directed to children under 13, and our Terms require users to be at least 13 (see Terms of Service for the account age requirement actually enforced by the App). We do not knowingly collect personal information from children under 13. If we learn we've collected such data, we will delete it promptly.</p>
+
+    <h2>10. Third-Party Links</h2>
+    <p>The App may link to third-party venue websites, ticketing platforms, or map services. We are not responsible for their privacy practices; please review their policies separately.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Material changes will be reflected by updating the "Last Updated" date above and, where required, by an in-app notice.</p>
+
+    <h2>12. Contact Us</h2>
+    <p>
+      <strong>Email:</strong> <span class="todo">TODO: PRIVACY EMAIL</span><br>
+      <strong>Address:</strong> <span class="todo">TODO: COMPANY ADDRESS</span>
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="support.html">Support</a>
+    </div>
+    <p class="copyright">&copy; 2026 Loop. Draft document — not yet published.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 320" role="img" aria-label="Loop">
+  <defs>
+    <linearGradient id="cyanStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7DD8FF"/>
+      <stop offset="25%" stop-color="#00BFFF"/>
+      <stop offset="50%" stop-color="#00A6D9"/>
+      <stop offset="75%" stop-color="#0090C0"/>
+      <stop offset="100%" stop-color="#00A6D9"/>
+    </linearGradient>
+    <linearGradient id="greenStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6FFFB8"/>
+      <stop offset="25%" stop-color="#2EE89E"/>
+      <stop offset="50%" stop-color="#09DB98"/>
+      <stop offset="75%" stop-color="#00C080"/>
+      <stop offset="100%" stop-color="#09DB98"/>
+    </linearGradient>
+    <linearGradient id="cyanFill" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#00BFFF" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#00A6D9" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0090C0" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="greenFill" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#2EE89E" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#09DB98" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00C080" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <circle cx="161.28" cy="160" r="115.2" fill="url(#cyanFill)" stroke="url(#cyanStroke)" stroke-width="35.2"/>
+  <circle cx="286.72" cy="160" r="115.2" fill="url(#greenFill)" stroke="url(#greenStroke)" stroke-width="35.2"/>
+</svg>
