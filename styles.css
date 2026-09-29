@@ -218,11 +218,11 @@ html:not(.js) .nav { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: b
    defaults to 1 so JS-off shows the phone at rest) drives the rise/tilt on .tilt. */
 .stage {
   position: relative; margin: 0 auto;
-  width: min(78%, 300px);
+  width: min(100%, 300px);
   --p: 1;
   perspective: 1400px;
 }
-@media (min-width: 900px) { .stage { width: 320px; } }
+
 .stage-glow {
   position: absolute; left: 50%; top: 50%; width: 190%; height: 110%;
   transform: translate(-50%, -50%);
@@ -244,7 +244,7 @@ html:not(.js) .nav { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: b
    screen, so reduced-motion (animation: none) shows a complete, static frame. Motion
    is transform/opacity only, one calm 8 s loop per phone. */
 .art { display: block; width: 100%; height: auto; }
-.art text { font-family: var(--font); }
+.art text { font-family: var(--font); text-rendering: geometricPrecision; }
 .art .ask-send, .art .plan-check, .art .plan-send, .art .learn-tap, .art .learn-pulse { transform-box: fill-box; transform-origin: center; }
 .art [class^="ask-"], .art [class^="plan-"], .art [class^="learn-"], .art .art-sheen { animation-duration: 8s; animation-iteration-count: infinite; animation-timing-function: var(--ease); }
 .art-sheen { animation-name: art-sheen; animation-timing-function: cubic-bezier(0.45, 0, 0.2, 1) !important; }
@@ -260,7 +260,7 @@ html:not(.js) .nav { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: b
 .ask-chips  { animation-name: ask-chips; }
 @keyframes ask-ph    { 0%, 2% { opacity: 1; } 3%, 34% { opacity: 0; } 38%, 100% { opacity: 1; } }
 @keyframes ask-typed { 0%, 2% { opacity: 0; } 3%, 31% { opacity: 1; } 33%, 100% { opacity: 0; } }
-@keyframes ask-cover { 0%, 2% { opacity: 0; transform: translateX(0); } 3% { opacity: 1; transform: translateX(0); animation-timing-function: steps(27, end); } 29% { opacity: 1; transform: translateX(162px); } 31%, 100% { opacity: 0; transform: translateX(162px); } }
+@keyframes ask-cover { 0%, 2% { opacity: 0; transform: translateX(0); } 3% { opacity: 1; transform: translateX(0); animation-timing-function: steps(19, end); } 29% { opacity: 1; transform: translateX(126px); } 31%, 100% { opacity: 0; transform: translateX(126px); } }
 @keyframes ask-send  { 0%, 30% { transform: scale(1); } 32% { transform: scale(0.86); } 36%, 100% { transform: scale(1); } }
 @keyframes ask-q     { 0%, 32% { opacity: 0; transform: translateY(10px); } 38%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
 @keyframes ask-a     { 0%, 42% { opacity: 0; transform: translateY(10px); } 48%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
@@ -296,11 +296,13 @@ html:not(.js) .nav { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: b
 @keyframes learn-toast   { 0%, 50% { opacity: 0; transform: translateY(12px); } 57%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
 @keyframes learn-pulse   { 0%, 57% { opacity: 0; transform: scale(1); } 59% { opacity: 0.7; } 80%, 100% { opacity: 0; transform: scale(2.8); } }
 
-.art .nt-1, .art .nt-2 { transform-box: fill-box; transform-origin: 50% 0; animation-duration: 8s; animation-iteration-count: infinite; animation-timing-function: var(--ease); }
+.art .nt-1, .art .nt-2, .art .nt-3 { transform-box: fill-box; transform-origin: 50% 0; animation-duration: 8s; animation-iteration-count: infinite; animation-timing-function: var(--ease); }
 .nt-1 { animation-name: nt-1; }
 .nt-2 { animation-name: nt-2; }
 @keyframes nt-1 { 0%, 8% { opacity: 0; transform: translateY(-36px) scale(0.96); } 16%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
-@keyframes nt-2 { 0%, 40% { opacity: 0; transform: translateY(-36px) scale(0.96); } 48%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes nt-2 { 0%, 34% { opacity: 0; transform: translateY(-36px) scale(0.96); } 42%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+.nt-3 { animation-name: nt-3; }
+@keyframes nt-3 { 0%, 60% { opacity: 0; transform: translateY(-36px) scale(0.96); } 68%, 92% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
 .teaser-center .teaser-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 .teaser-center .teaser-copy { max-width: 760px; }
 .teaser-center .lede { margin: 0 auto; }
@@ -337,6 +339,7 @@ html:not(.js) .nav { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: b
 .footer-links a { color: var(--text-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.25s; }
 .footer-links a:hover { color: var(--text); }
 .copyright { font-size: 12px; letter-spacing: 0.01em; }
+.credit { font-size: 11px; margin-top: 6px; color: var(--text-3); opacity: 0.8; }
 
 /* ---------- Reveal (JS-gated so no-JS shows everything) ---------- */
 .js .reveal {
