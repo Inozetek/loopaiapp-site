@@ -45,30 +45,41 @@
 
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
-  /* 3. Scroll-scrubbed rise of the device art: --p goes 0 -> 1 as the stage
-        travels from the bottom of the viewport to ~40% up it. */
+  /* 3. Scroll-scrubbed rise of the phones: --p goes 0 -> 1 as a stage travels
+        from the bottom of the viewport to ~40% up it. Cheap by construction:
+        rects are read first, writes happen only for stages near the viewport and
+        only when the rounded value changes, and CSS moves transform/opacity only. */
   var ticking = false;
+  var lastP = stages.map(function () { return -1; });
+  var lastLit = -1;
+  var navOn = null;
   function frame() {
     ticking = false;
     var vh = window.innerHeight || root.clientHeight;
+    var rects = stages.map(function (el) { return el.getBoundingClientRect(); });
+    var m = words.length ? manifesto.getBoundingClientRect() : null;
 
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 12);
+    var on = window.scrollY > 12;
+    if (nav && on !== navOn) { nav.classList.toggle('scrolled', on); navOn = on; }
 
     for (var i = 0; i < stages.length; i++) {
-      var r = stages[i].getBoundingClientRect();
+      var r = rects[i];
+      if (r.bottom < -vh || r.top > vh * 2) continue;          /* far off-screen: skip */
       var p = clamp((vh - r.top) / (vh * 0.6));
-      var eased = 1 - Math.pow(1 - p, 3);
-      stages[i].style.setProperty('--p', eased.toFixed(3));
+      var eased = Math.round((1 - Math.pow(1 - p, 3)) * 200) / 200;
+      if (eased !== lastP[i]) { stages[i].style.setProperty('--p', eased); lastP[i] = eased; }
     }
 
-    if (words.length) {
-      var m = manifesto.getBoundingClientRect();
+    if (m && m.bottom > -vh && m.top < vh * 2) {
       /* start lighting when the paragraph top hits 85% of the viewport,
          finish when its bottom reaches 55% */
       var start = vh * 0.85, end = vh * 0.55;
       var prog = clamp((start - m.top) / ((start - end) + m.height));
       var lit = Math.round(prog * words.length);
-      for (var j = 0; j < words.length; j++) words[j].classList.toggle('lit', j < lit);
+      if (lit !== lastLit) {
+        for (var j = 0; j < words.length; j++) words[j].classList.toggle('lit', j < lit);
+        lastLit = lit;
+      }
     }
   }
   function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(frame); } }
